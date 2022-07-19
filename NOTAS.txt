@@ -1,0 +1,33 @@
+
+create TABLE cotizacion(
+id_cotizacion int AUTO_INCREMENT PRIMARY key,
+    clave varchar(15),
+    nombre_cliente varchar(150),
+    telefono varchar(15),
+    correo varchar(30),
+    direccion varchar(150),
+    fecha_cot date,
+    INDEX (clave)
+);
+
+
+CREATE table producto_cotizacion(
+	id_prod_ct int AUTO_INCREMENT PRIMARY KEY,
+    clave varchar(15),
+	codigoProducto varchar(30),
+    cantidad int,
+    descripcion text,
+    factor varchar(30),
+	contenido text,
+    precio_unitario decimal(10,2),
+    sub_total decimal(10,2),
+    
+    FOREIGN KEY (clave) REFERENCES cotizacion(clave)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE
+);
+
+
+
+
+
